@@ -54,6 +54,7 @@ function sort(){
     const swaps=bubbleSort(copy);
 
     animate(swaps);
+    // selectionSort(arr);
 }
 function bubbleSort(arr){
     const swaps=[];
@@ -76,4 +77,21 @@ function bubbleSort(arr){
   
     // animate(swaps);
     
+}
+
+function selectionSort(arr){
+    for(let i=0; i<arr.length-1; i++){
+        var min =i;
+        for(let j=i ; j<arr.length-1; j++){
+            if(arr[min]> arr[j]){
+                min=j;
+
+            }
+        }
+        let temp = arr[i];
+            arr[i]=arr[min];
+            arr[min]=temp;
+                
+    }
+    show();
 }
