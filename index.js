@@ -3,19 +3,19 @@ var arr;
 
 function randomNum() {
     arr=[];
-  for(let i=0; i<arrayLength; i++){  
-  let randomN = Math.random();
-    arr.push(randomN)
-    console.log(arr);
-}
+    for(let i=0; i<arrayLength; i++){  
+        let randomN = Math.random();
+        arr.push(randomN)
+        // console.log(arr);
+    }
     
 }
 function generate() {
     randomNum();
-  show();
- 
+    show();
+    
 }
-function show(){
+function show(indices){
     const container = document.querySelector(".container");
     container.innerHTML = "";
     for (let i = 0; i < arrayLength; i++) {
@@ -24,58 +24,56 @@ function show(){
         bar.style.backgroundColor = "black";
         bar.style.height = arr[i] * 100 + "%";
         container.appendChild(bar);
-      }
+        if(indices && indices.includes(i)){
+            bar.style.backgroundColor="lightgreen";
+        }
+    }
 }
+function animate(swaps){
+    if(swaps.length===0){
+        
+        return;
+    }
+    console.log(swaps[0]);
+    const [i,j]=swaps.shift();
+    console.log(i+","+j);
+    const bars = document.querySelectorAll(".bar");
+    // bars[i].style.height = arr[i] * 100 + "%";
+    // bars[j].style.height = arr[j] * 100 + "%";
+    let temp = arr[i];
+    arr[i]=arr[j];
+    arr[j]=temp;
+    show([i, j]);
+    setTimeout(()=>{
+        animate(swaps);
+    },10);
+}
+function sort(){
+    const copy =[...arr];
+    console.log(copy);
+    const swaps=bubbleSort(copy);
 
-async function sort(){
+    animate(swaps);
+}
+function bubbleSort(arr){
+    const swaps=[];
     do{
         var swapped=false;
-        for(let i=0; i<arrayLength-1; i++){     
+        for(let i=0; i<arr.length-1; i++){
             if(arr[i]>arr[i+1]){
-                swapped=true;
-                let temp =arr[i];
+                swaps.push([i,i+1]);
+                console.log(swaps);
+                let temp = arr[i];
                 arr[i]=arr[i+1];
                 arr[i+1]=temp;
+                swapped=true;
             }
         }
     }while(swapped);
-    show();
-    // let bars = document.getElementsByClassName("bar");
-    // for (let i = 0; i < arr.length; i++) {
-    //   for (let j = 0; j < arr.length - i - 1; j++) {
-    //     if (arr[j] > arr[j + 1]) {
-    //       for (let k = 0; k < bars.length; k++) {
-    //         if (k !== j && k !== j + 1) {
-    //           bars[k].style.backgroundColor = "black";
-    //         }
-    //       }
-    //       let temp = arr[j];
-    //       arr[j] = arr[j + 1];
-    //       arr[j + 1] = temp;
-    //       bars[j].style.height = arr[j] * 100 + "%";
-    //       bars[j].style.backgroundColor = "lightgreen";
-    //       //bars[j].innerText = array[j];
-    //       bars[j + 1].style.height = arr[j + 1] * 100 + "%";
-    //       bars[j + 1].style.backgroundColor = "lightgreen";
-    //       bars[j + 1].innerText = array[j + 1];
-    //       await sleep(50);
-    //     // setTimeout(()=>{
-    //     //     bars[j].style.height = arr[j] * 100 + "%";
-    //     //     bars[j].style.backgroundColor = "lightgreen";
-    //     //     //bars[j].innerText = array[j];
-    //     //     bars[j + 1].style.height = arr[j + 1] * 100 + "%";
-    //     //     bars[j + 1].style.backgroundColor = "lightgreen";
-    //     // }, 50);
-    //     }
-    //   }
-    //   await sleep(50);
-    // // setTimeout(()=>{
-    // //     bars[j].style.height = arr[j] * 100 + "%";
-    // //     bars[j].style.backgroundColor = "lightgreen";
-    // //     //bars[j].innerText = array[j];
-    // //     bars[j + 1].style.height = arr[j + 1] * 100 + "%";
-    // //     bars[j + 1].style.backgroundColor = "lightgreen";
-    // // }, 50);
-    // }
-    // return arr;
+    return swaps
+    // show();
+    // animate(swaps);
+  
+    // animate(swaps);
+    
 }
