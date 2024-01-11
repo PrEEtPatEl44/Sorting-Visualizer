@@ -1,6 +1,5 @@
-
-const arrayLength=document.getElementById('length');
-const speed = document.getElementById('speed');
+const arrayLength = document.getElementById("length");
+const speed = document.getElementById("speed");
 const idOfSortAlg = document.getElementById("sortType");
 var arr;
 
@@ -13,7 +12,7 @@ function randomNum() {
   }
 }
 function generate() {
-    console.log(arrayLength.value);
+  console.log(arrayLength.value);
   randomNum();
   show();
 }
@@ -43,19 +42,17 @@ function sort() {
       selectionSort();
       break;
     case "insertion":
-        insertionSort();
-        break;
+      insertionSort();
+      break;
   }
 }
 async function bubbleSort() {
- 
   const bars = document.querySelectorAll(".bar");
 
   do {
     var swapped = false;
     for (let i = 0; i < arr.length - 1; i++) {
       if (arr[i] > arr[i + 1]) {
-       
         let temp = arr[i];
         arr[i] = arr[i + 1];
         arr[i + 1] = temp;
@@ -71,7 +68,6 @@ async function bubbleSort() {
     }
     await new Promise((resolve) => setTimeout(resolve, speed.value));
   } while (swapped);
-  
 }
 
 async function selectionSort() {
@@ -134,38 +130,34 @@ async function selectionSort() {
   }
 }
 
-async function insertionSort(){
-    const bars = document.querySelectorAll(".bar");
-    let i,j,key;
-    for (let i = 1; i < arr.length; i++) {
-        let current = arr[i];
-        let prev = i - 1;
-    
-        bars[i].style.backgroundColor = "red";
-        await new Promise((release) => setTimeout(release, speed.value));
-    
-        while (prev >= 0 && arr[prev] > current) {
-            bars[prev].style.backgroundColor = "red";
-            bars[prev + 1].style.backgroundColor = "red";
-            await new Promise((release) => setTimeout(release, speed.value));
-    
-            
-            arr[prev + 1] = arr[prev];
-            bars[prev + 1].style.height = arr[prev] * 90 + "%";
-            bars[prev].style.height = arr[prev] * 90 + "%";
-            bars[prev].style.backgroundColor = "black";
-            bars[prev + 1].style.backgroundColor = "black";
-    
-            prev--;
-        }
-  
-        arr[prev + 1] = current;
-        bars[prev + 1].style.height = current * 90 + "%";
-        for (let j = i + 1; j < arr.length; j++) {
-            bars[j].style.backgroundColor = "black";
-        }
-    }
-    
-    
-}
+async function insertionSort() {
+  const bars = document.querySelectorAll(".bar");
+  let i, j, key;
+  for (let i = 1; i < arr.length; i++) {
+    let current = arr[i];
+    let prev = i - 1;
 
+    bars[i].style.backgroundColor = "red";
+    await new Promise((release) => setTimeout(release, speed.value));
+
+    while (prev >= 0 && arr[prev] > current) {
+      bars[prev].style.backgroundColor = "red";
+      bars[prev + 1].style.backgroundColor = "red";
+      await new Promise((release) => setTimeout(release, speed.value));
+
+      arr[prev + 1] = arr[prev];
+      bars[prev + 1].style.height = arr[prev] * 90 + "%";
+      bars[prev].style.height = arr[prev] * 90 + "%";
+      bars[prev].style.backgroundColor = "black";
+      bars[prev + 1].style.backgroundColor = "black";
+
+      prev--;
+    }
+
+    arr[prev + 1] = current;
+    bars[prev + 1].style.height = current * 90 + "%";
+    for (let j = i + 1; j < arr.length; j++) {
+      bars[j].style.backgroundColor = "black";
+    }
+  }
+}

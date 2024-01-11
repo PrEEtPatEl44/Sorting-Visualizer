@@ -1,25 +1,28 @@
-body{
-    margin:0px;
-    padding:0px;
+body {
+    margin: 0px;
+    padding: 0px;
     /* background-color: black; */
 }
-.container{
+
+.container {
     /* margin:0px;
     padding:0px; */
     display: flex;
     flex-direction: row;
-    border:1px solid lightslategray;
+    border: 1px solid lightslategray;
     /* align-items: center; */
     justify-content: center;
     height: 100vh;
     align-items: flex-start;
     /* background-color: lightslategray; */
-    
+
 }
-.bar{
-    margin:1px;
+
+.bar {
+    margin: 1px;
     width: 10px;
 }
-button{
-    margin-left:10px;
+
+button {
+    margin-left: 10px;
 }
