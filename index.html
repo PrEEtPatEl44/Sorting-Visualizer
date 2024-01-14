@@ -5,46 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting-visualizer</title>
-   
+
     <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-  
-   
-<nav>
+
+
+    <nav>
 
         <span>Sorting Visualizer</span>
-        <button id="init" onclick="generate()" >Generate</button>
-        <button id="sort" onclick="sort()" >Sort</button>
-        
-  <select id="sortType">
-    <option disabled selected>Algorithm</option>
-    <option value="bubble">Bubble Sort</option>
-    <option value="selection">Selection Sort</option>
-    <option value="insertion">Insertion Sort</option>
-    </select>
-    
-    <select id="speed" >
-        <option disabled selected>Speed</option>
-        <option value="1">1</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="50">50</option>
-        <option value="250">250</option>
-        <option value="500">500</option>
-        <option value="1000">1000</option>
-    </select>
-     
-        <label for="length" >No Of Bars:</label>
-        <input id="length" >>
-</nav>
+        <button id="init" onclick="generate()">Generate</button>
+        <button id="sort" onclick="sort()">Sort</button>
+
+        <select id="sortType">
+            <option disabled selected>Algorithm</option>
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+        </select>
+
+        <select id="speed">
+            <option disabled selected>Speed</option>
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="50">50</option>
+            <option value="250">250</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+        </select>
+
+        <label for="length">No Of Bars:</label>
+        <input id="length">>
+    </nav>
     <div class="container">
 
     </div>
 
     <script src="./index.js"></script>
-   
+
 </body>
 
 </html>
