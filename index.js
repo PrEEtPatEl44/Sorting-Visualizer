@@ -1,6 +1,7 @@
 const arrayLength = document.getElementById("length");
 const speed = document.getElementById("speed");
 const idOfSortAlg = document.getElementById("sortType");
+const bars = document.querySelectorAll(".bar");
 var arr;
 
 function randomNum() {
@@ -21,8 +22,10 @@ function show(indices) {
   container.innerHTML = "";
   for (let i = 0; i < arrayLength.value; i++) {
     var bar = document.createElement("div");
+    var barWidth = 100 / arr.length;
     bar.classList.add("bar");
-    bar.style.backgroundColor = "black";
+    bar.style.width = barWidth + "%";
+    bar.style.backgroundColor = "#F6B17A";
     bar.style.height = arr[i] * 100 + "%";
     container.appendChild(bar);
     if (indices && indices.includes(i)) {
@@ -63,8 +66,8 @@ async function bubbleSort() {
         bars[i + 1].style.backgroundColor = "red";
         await new Promise((resolve) => setTimeout(resolve, speed.value));
       }
-      bars[i].style.backgroundColor = "black";
-      bars[i + 1].style.backgroundColor = "black";
+      bars[i].style.backgroundColor = "#F6B17A";
+      bars[i + 1].style.backgroundColor = "#F6B17A";
     }
     await new Promise((resolve) => setTimeout(resolve, speed.value));
   } while (swapped);
@@ -88,8 +91,8 @@ async function selectionSort() {
   //             // // bars[i].style.backgroundColor = "red";
   //             // await new Promise((resolve) => setTimeout(resolve, 1000));
   //         }
-  //         bars[i].style.backgroundColor = "black";
-  //         // bars[min].style.backgroundColor= "black";
+  //         bars[i].style.backgroundColor = "#F6B17A";
+  //         // bars[min].style.backgroundColor= "#F6B17A";
   let i, j, min;
 
   for (i = 0; i < arr.length - 1; i++) {
@@ -105,7 +108,7 @@ async function selectionSort() {
       await new Promise((resolve) => setTimeout(resolve, speed.value));
       if (arr[j] < arr[min]) {
         if (count > 0) {
-          bars[min].style.backgroundColor = "black";
+          bars[min].style.backgroundColor = "#F6B17A";
         }
         // console.log("inside loop");
         min = j;
@@ -113,7 +116,7 @@ async function selectionSort() {
         count++;
       }
       if (min !== j) {
-        bars[j].style.backgroundColor = "black";
+        bars[j].style.backgroundColor = "#F6B17A";
       }
     }
     if (min !== i) {
@@ -125,8 +128,8 @@ async function selectionSort() {
       bars[i].style.backgroundColor = "green";
       bars[min].style.backgroundColor = "green";
     }
-    bars[i].style.backgroundColor = "black";
-    bars[min].style.backgroundColor = "black";
+    bars[i].style.backgroundColor = "#F6B17A";
+    bars[min].style.backgroundColor = "#F6B17A";
   }
 }
 
@@ -148,8 +151,8 @@ async function insertionSort() {
       arr[prev + 1] = arr[prev];
       bars[prev + 1].style.height = arr[prev] * 90 + "%";
       bars[prev].style.height = arr[prev] * 90 + "%";
-      bars[prev].style.backgroundColor = "black";
-      bars[prev + 1].style.backgroundColor = "black";
+      bars[prev].style.backgroundColor = "#F6B17A";
+      bars[prev + 1].style.backgroundColor = "#F6B17A";
 
       prev--;
     }
@@ -157,7 +160,7 @@ async function insertionSort() {
     arr[prev + 1] = current;
     bars[prev + 1].style.height = current * 90 + "%";
     for (let j = i + 1; j < arr.length; j++) {
-      bars[j].style.backgroundColor = "black";
+      bars[j].style.backgroundColor = "#F6B17A";
     }
   }
 }

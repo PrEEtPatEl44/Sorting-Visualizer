@@ -9,7 +9,7 @@ body {
     padding:0px; */
     display: flex;
     flex-direction: row;
-    border: 1px solid lightslategray;
+   ;
     /* align-items: center; */
     justify-content: center;
     height: 100vh;
@@ -18,11 +18,42 @@ body {
 
 }
 
-.bar {
-    margin: 1px;
-    width: 10px;
+
+
+span{
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+    color:#F6B17A;
+}
+button{
+    border:none;
+    background-color:transparent;
+    color:#F6B17A;
+    font-family: cursive;
+    border-radius: 25px;
+    margin-top: 10px;
 }
 
-button {
-    margin-left: 10px;
+  nav{
+    background-color: #2D3250;
+    display: flex;
+    justify-content: space-between;
+  }
+body{
+    background-color: #2D3250;
+}
+label, select, input{
+    border-radius: 25px;
+    background-color:transparent;
+    color:#F6B17A;
+    font-family: cursive;
+    border: none;
+    margin-top: 10px;
+}
+
+input{
+    width: 50px;
+    border: 2px solid #F6B17A;
+    margin-top: 10px;
 }
