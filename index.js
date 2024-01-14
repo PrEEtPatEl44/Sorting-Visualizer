@@ -26,7 +26,7 @@ function show(indices) {
     bar.classList.add("bar");
     bar.style.width = barWidth + "%";
     bar.style.backgroundColor = "#F6B17A";
-    bar.style.height = arr[i] * 100 + "%";
+    bar.style.height = arr[i] * 90 + "%";
     container.appendChild(bar);
     if (indices && indices.includes(i)) {
       bar.style.backgroundColor = "lightgreen";
