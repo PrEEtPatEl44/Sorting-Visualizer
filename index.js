@@ -177,7 +177,7 @@ async function finalAnimation() {
   const bars = document.querySelectorAll(".bar");
   for (let i = 0; i < bars.length; i++) {
     bars[i].style.backgroundColor = "#b6fc03";
-    await new Promise((resolve) => setTimeout(resolve, 50));
+    await new Promise((resolve) => setTimeout(resolve, 10));
   }
   for (let i = 0; i < bars.length; i++) {
     bars[i].style.backgroundColor = "#F6B17A";
