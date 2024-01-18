@@ -12,33 +12,35 @@
 <body>
 
 
-    <nav>
+    <nav class="navbar">
+        <div class="top">
 
-        <span>Sorting Visualizer</span>
-        <button id="init" onclick="generate()">Generate</button>
-        <button id="sort" onclick="sort()">Sort</button>
 
-        <select id="sortType">
-            <option disabled selected>Algorithm</option>
-            <option value="bubble">Bubble Sort</option>
-            <option value="selection">Selection Sort</option>
-            <option value="insertion">Insertion Sort</option>
-        </select>
+            <h1>Sorting Visualizer</h1>
 
-        <select id="speed">
-            <option disabled selected>Speed</option>
-            <option value="1">1</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="50">50</option>
-            <option value="250">250</option>
-            <option value="500">500</option>
-            <option value="1000">1000</option>
-        </select>
+        </div>
+        <div class="bottom">
+            <div class="slidecontainer">
+                <label for="length">No Of Bars:</label>
+                <input type="range" min="10" max="500" value="50" class="slider" id="length">
+            </div>
+            <button id="init" class="btn" onclick="generate()">Randomize</button>
 
-        <label for="length">No Of Bars:</label>
-        <input id="length">>
+            <select id="sortType">
+                <option disabled selected>Algorithm</option>
+                <option value="bubble">Bubble Sort</option>
+                <option value="selection">Selection Sort</option>
+                <option value="insertion">Insertion Sort</option>
+            </select>
+            <button id="sort" class="btn" onclick="sort()">Sort</button>
+            <div class="slidecontainer">
+                <label for="speed">Speed:</label>
+                <input type="range" min="0.001" max="1000" value="50" class="slider" id="speed">
+            </div>
+        </div>
     </nav>
+
+
     <div class="container">
 
     </div>

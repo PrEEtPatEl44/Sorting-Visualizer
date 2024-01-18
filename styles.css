@@ -1,6 +1,8 @@
 body {
     margin: 0px;
     padding: 0px;
+    /* display: flex;
+    flex-direction: column; */
     /* background-color: black; */
 }
 
@@ -13,52 +15,113 @@ body {
     /* align-items: center; */
     justify-content: center;
     height: 100vh;
-    align-items: flex-start;
+    align-items: flex-end;
     /* background-color: lightslategray; */
 
 }
 
-
-
-span {
+h1 {
+    display: flex;
+    justify-content: center;
     font-size: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 900;
-    color: #F6B17A;
+    text-shadow: 0px 0px 10px rgba(245, 204, 160, 1);
+    color: #F5CCA0;
 }
 
-button {
-    border: none;
-    background-color: transparent;
-    color: #F6B17A;
-    font-family: cursive;
-    border-radius: 25px;
-    margin-top: 10px;
+.navbar {
+    /* display: flex;
+    flex-direction: column; */
+
+    position: sticky;
+    top: 0;
+    /* background-color: transparent; */
 }
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 
 nav {
-    background-color: #2D3250;
+    background-color: #0e142c;
     display: flex;
-    justify-content: space-between;
+    /* height: 100px; */
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 body {
     background-color: #2D3250;
 }
 
-label,
+/* label,
 select,
 input {
     border-radius: 25px;
     background-color: transparent;
-    color: #F6B17A;
+    color: #7077A1;
     font-family: cursive;
     border: none;
     margin-top: 10px;
-}
+} */
 
-input {
+/* input {
     width: 50px;
     border: 2px solid #F6B17A;
     margin-top: 10px;
+} */
+.bar {
+    box-shadow: 0px 0px 10px rgba(239, 154, 8, 0.6);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button,
+label,
+select {
+    /* height: 50px;
+    width: 150px; */
+    background-color: #7077A1;
+    color: #d5d5d9;
+    margin: 10px 30px;
+    font-family: fantasy;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px rgba(127, 155, 221, 0.6);
+}
+
+label {
+    margin-top: 15px;
+}
+
+button:hover,
+label:hover,
+select:hover {
+    /* height: 55px;
+    width: 155px; */
+    filter: brightness(90%);
+    background-color: bisque;
+    transition: ease(1.2s);
 }

@@ -3,6 +3,13 @@ const speed = document.getElementById("speed");
 const idOfSortAlg = document.getElementById("sortType");
 const bars = document.querySelectorAll(".bar");
 var arr;
+addEventListener("DOMContentLoaded", () => {
+  generate();
+});
+arrayLength.oninput = function () {
+  console.log(this.value);
+  setInterval(generate(), 10);
+};
 
 function randomNum() {
   arr = [];
@@ -13,6 +20,11 @@ function randomNum() {
   }
 }
 function generate() {
+  if (arrayLength.value <= 0) {
+    alert("Please enter a valid number of bars!");
+    return;
+  }
+
   console.log(arrayLength.value);
   randomNum();
   show();
@@ -26,7 +38,8 @@ function show(indices) {
     bar.classList.add("bar");
     bar.style.width = barWidth + "%";
     bar.style.backgroundColor = "#F6B17A";
-    bar.style.height = arr[i] * 90 + "%";
+    bar.style.height = arr[i] * 75 + "%";
+    bar.classList.add("fadeIn");
     container.appendChild(bar);
     if (indices && indices.includes(i)) {
       bar.style.backgroundColor = "lightgreen";
@@ -35,6 +48,14 @@ function show(indices) {
 }
 
 function sort() {
+  if (idOfSortAlg.value === "Algorithm") {
+    alert("Please select a sorting algorithm!");
+    return;
+  }
+  if (speed.value === "Speed") {
+    alert("Please set a valid speed for the algorithm!");
+    return;
+  }
   console.log(idOfSortAlg.value);
   console.log(speed.value);
   switch (idOfSortAlg.value) {
@@ -60,10 +81,13 @@ async function bubbleSort() {
         arr[i] = arr[i + 1];
         arr[i + 1] = temp;
         swapped = true;
-        bars[i].style.height = arr[i] * 90 + "%";
-        bars[i + 1].style.height = arr[i + 1] * 90 + "%";
+
+        bars[i].style.height = arr[i] * 75 + "%";
+        bars[i + 1].style.height = arr[i + 1] * 75 + "%";
         bars[i].style.backgroundColor = "red";
         bars[i + 1].style.backgroundColor = "red";
+        // bars[i].classList.add("fadeIn");
+        // bars[i+1].classList.add("fadeIn");
         await new Promise((resolve) => setTimeout(resolve, speed.value));
       }
       bars[i].style.backgroundColor = "#F6B17A";
@@ -71,28 +95,11 @@ async function bubbleSort() {
     }
     await new Promise((resolve) => setTimeout(resolve, speed.value));
   } while (swapped);
+  finalAnimation();
 }
 
 async function selectionSort() {
   const bars = document.querySelectorAll(".bar");
-  // for(let i=0; i<arr.length; i++){
-  //     var min =i;
-  //     bars[min].style.backgroundColor= "lightgreen";
-  //     for(let j=i ; j<arr.length-1; j++){
-  //         if(arr[min]> arr[j]){
-  //             min=j;
-  //             // bars[min].style.backgroundColor= "lightgreen";
-  //             // await new Promise((resolve) => setTimeout(resolve, 1000));
-  //             // let temp = arr[j];
-  //             // arr[j]=arr[min];
-  //             // arr[min]=temp;
-  //             // bars[j].style.height = arr[j] * 100 + "%";
-  //             // bars[min].style.height = arr[min] * 100 + "%";
-  //             // // bars[i].style.backgroundColor = "red";
-  //             // await new Promise((resolve) => setTimeout(resolve, 1000));
-  //         }
-  //         bars[i].style.backgroundColor = "#F6B17A";
-  //         // bars[min].style.backgroundColor= "#F6B17A";
   let i, j, min;
 
   for (i = 0; i < arr.length - 1; i++) {
@@ -123,14 +130,15 @@ async function selectionSort() {
       let temp = arr[i];
       arr[i] = arr[min];
       arr[min] = temp;
-      bars[i].style.height = arr[i] * 90 + "%";
-      bars[min].style.height = arr[min] * 90 + "%";
+      bars[i].style.height = arr[i] * 75 + "%";
+      bars[min].style.height = arr[min] * 75 + "%";
       bars[i].style.backgroundColor = "green";
       bars[min].style.backgroundColor = "green";
     }
     bars[i].style.backgroundColor = "#F6B17A";
     bars[min].style.backgroundColor = "#F6B17A";
   }
+  finalAnimation();
 }
 
 async function insertionSort() {
@@ -149,8 +157,8 @@ async function insertionSort() {
       await new Promise((release) => setTimeout(release, speed.value));
 
       arr[prev + 1] = arr[prev];
-      bars[prev + 1].style.height = arr[prev] * 90 + "%";
-      bars[prev].style.height = arr[prev] * 90 + "%";
+      bars[prev + 1].style.height = arr[prev] * 75 + "%";
+      bars[prev].style.height = arr[prev] * 75 + "%";
       bars[prev].style.backgroundColor = "#F6B17A";
       bars[prev + 1].style.backgroundColor = "#F6B17A";
 
@@ -158,9 +166,21 @@ async function insertionSort() {
     }
 
     arr[prev + 1] = current;
-    bars[prev + 1].style.height = current * 90 + "%";
+    bars[prev + 1].style.height = current * 75 + "%";
     for (let j = i + 1; j < arr.length; j++) {
       bars[j].style.backgroundColor = "#F6B17A";
     }
+  }
+  finalAnimation();
+}
+async function finalAnimation() {
+  const bars = document.querySelectorAll(".bar");
+  for (let i = 0; i < bars.length; i++) {
+    bars[i].style.backgroundColor = "#b6fc03";
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  for (let i = 0; i < bars.length; i++) {
+    bars[i].style.backgroundColor = "#F6B17A";
+    await new Promise((resolve) => setTimeout(resolve, 10));
   }
 }
