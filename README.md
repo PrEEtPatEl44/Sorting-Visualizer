@@ -8,5 +8,6 @@
 </i></p>
 <h3>link</h3>
 https://preetpatel44.github.io/Sorting-Visualizer/
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qb6s0tXC4hM?si=UdDXJjS5a2sICFUF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+
+![VIDEO](https://github.com/PrEEtPatEl44/Sorting-Visualizer/assets/123954310/bec0782f-d31a-4520-b8b0-1dd68a11f17c)](https://youtu.be/qb6s0tXC4hM?si=ehoYGlOs3NJ6BYec)
