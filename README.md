@@ -9,6 +9,5 @@
 <h3>link</h3>
 https://preetpatel44.github.io/Sorting-Visualizer/
 <br><br>
-
-[![VIDEO](https://youtu.be/qb6s0tXC4hM?si=ehoYGlOs3NJ6BYec)
+(https://youtu.be/qb6s0tXC4hM?si=ehoYGlOs3NJ6BYec)
 
